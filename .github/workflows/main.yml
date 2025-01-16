@@ -1,5 +1,15 @@
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment to run
+        type: choice
+        required: true
+        options:
+          - dev
+          - staging
+          - prod
+        
 
 jobs:
   test_job:
