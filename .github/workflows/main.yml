@@ -15,5 +15,19 @@ jobs:
   test_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print message
-        run: echo "Hello, world!"
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Create and activate virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          
+      - name: Upgrade pip
+        run: |
+          source venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install aws-sam-cli
+          pip install awscli
