@@ -29,5 +29,8 @@ jobs:
         run: |
           source venv/bin/activate
           python -m pip install --upgrade pip
+          
+      - name: Install Sam and Aws cli
+        run:  |
           pip install aws-sam-cli
           pip install awscli
